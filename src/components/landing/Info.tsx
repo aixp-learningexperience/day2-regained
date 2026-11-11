@@ -6,7 +6,7 @@ import { Card, Section } from "./Basics";
 export function HowItWorks() {
   const steps = [
     ["Register", "30 seconds."],
-    ["Pick a 5-minute stage slot", "No slot? Floor1 has four open tables for free pitch sessions."],
+    ["Pick a 5-minute stage slot", "The most-liked pitch of the day wins one year of AIXP. No slot? Floor1 has four open tables for free pitch sessions."],
     ["Enter the campus in your browser", "Type your name, choose an avatar, walk in."],
   ];
   return (
@@ -30,7 +30,7 @@ export function Campus() {
     [Users, "Meeting Room", "AIXP in a few minutes: a short video on what AIXP does, and someone from our team there to answer your questions."],
     [Presentation, "Show Room", "See how a company presents products inside an immersive space."],
     [Coffee, "Floor1", "Four tables for open pitch sessions. No slot needed: sit down and pitch."],
-    [Sunset, "Rooftop", "The hallway track. Walk up, say hi."],
+    [Sunset, "Rooftop", "The hallway track. Walk up, say hi. Rooftop Hour at 18:00 Lisbon time: one hour of open networking, everyone up."],
   ] as const;
   return (
     <Section eyebrow="The campus" title="Five places to be today.">

@@ -66,7 +66,7 @@ export function TopPitches() {
     .sort((a, b) => b.likes - a.likes || a.starts_at.localeCompare(b.starts_at)).slice(0, 10);
   return (
     <Section id="top-pitches" eyebrow="Vote" title="Like the pitches you'd back."
-      sub="One like per person per pitch. The most-liked pitch at 20:00 Lisbon time is the pitch of the day.">
+      sub="One like per person per pitch. The most-liked pitch at 20:00 Lisbon time is the pitch of the day and wins one year of AIXP to build its own academy.">
       {top.length === 0 ? (
         <Card className="text-center"><p className="text-lg font-semibold">No votes yet. Be the first to like a pitch.</p></Card>
       ) : (
