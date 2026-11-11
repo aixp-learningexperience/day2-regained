@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { SITE_URL, CAMPUS_URL, LOOKING_FOR, ROLES, registerSchema } from "@/lib/event";
 import { scrollToId, useCampus } from "@/lib/campus";
 import { Card, Chip, Section } from "./Basics";
+import { DeckUpload } from "./Pitch";
 
 const field = "w-full rounded-xl border border-input bg-background px-4 py-3 text-base outline-none focus:border-primary";
 
@@ -71,6 +72,7 @@ export function Register() {
         <Card className="max-w-2xl space-y-6 p-6 sm:p-8">
           {me && <p className="text-lg">Welcome, <b>{me.full_name}</b> from {me.company}.</p>}
           <EnterCampus mapTip />
+          <DeckUpload />
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button variant="soft" size="xl" onClick={() => scrollToId("slots")}>
               {me?.slot_id ? "See my stage slot" : "Pick my stage slot"}

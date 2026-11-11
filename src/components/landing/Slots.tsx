@@ -8,6 +8,7 @@ import { buildIcs, fmtLisbon, fmtLocal, pitchSchema } from "@/lib/event";
 import { scrollToId, useCampus, useNow, useSlots, type Slot } from "@/lib/campus";
 import { Card, Section } from "./Basics";
 import { EnterCampus } from "./Register";
+import { DeckLink, DeckUpload, LikeButton } from "./Pitch";
 
 function downloadIcs(start: string, title: string) {
   const blob = new Blob([buildIcs(start, title)], { type: "text/calendar;charset=utf-8" });
@@ -85,6 +86,7 @@ export function Slots() {
               <Button variant="ghost" size="xl" onClick={release}>Release my slot</Button>
             )}
           </div>
+          <div className="mt-6"><DeckUpload /></div>
           <div className="mt-6"><EnterCampus /></div>
         </Card>
       )}
@@ -126,6 +128,12 @@ export function Slots() {
                           <p className="font-semibold">{fmtLisbon(s.starts_at)} {mine && <span className="text-accent">· you</span>}</p>
                           <p className="truncate">{s.company}</p>
                           <p className="truncate text-xs text-muted-foreground">{s.pitch_title}</p>
+                          {s.attendee_id && (
+                            <div className="mt-2 flex items-center justify-between gap-2">
+                              <LikeButton targetId={s.attendee_id} likes={s.likes} />
+                              <DeckLink url={s.deck_url} />
+                            </div>
+                          )}
                         </div>
                       );
                     }

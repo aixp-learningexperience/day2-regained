@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { LOOKING_FOR, ROLES, bestMatches, fmtLisbon } from "@/lib/event";
 import { scrollToId, useCampus, useDirectory, type DirEntry } from "@/lib/campus";
 import { Card, Chip, Section } from "./Basics";
+import { DeckLink, LikeButton } from "./Pitch";
 
 function PersonCard({ p }: { p: DirEntry }) {
   return (
@@ -19,7 +20,13 @@ function PersonCard({ p }: { p: DirEntry }) {
         {p.looking_for.map((x) => <span key={x} className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground">{x}</span>)}
       </div>
       <div className="mt-auto pt-4">
-        {p.slot_starts_at && <p className="mb-3 text-sm text-accent">On stage at {fmtLisbon(p.slot_starts_at)} Lisbon</p>}
+        {p.slot_starts_at && (
+          <div className="mb-3 flex flex-wrap items-center gap-3">
+            <p className="text-sm text-accent">On stage at {fmtLisbon(p.slot_starts_at)} Lisbon</p>
+            <LikeButton targetId={p.id} likes={p.likes} />
+            <DeckLink url={p.deck_url} />
+          </div>
+        )}
         {p.linkedin_url && (
           <Button asChild variant="soft" className="w-full">
             <a href={p.linkedin_url} target="_blank" rel="noopener noreferrer nofollow">Connect on LinkedIn</a>

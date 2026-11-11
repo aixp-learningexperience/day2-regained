@@ -10,6 +10,7 @@ import { Campus, Footer, HowItWorks, Why } from "@/components/landing/Info";
 import { Register } from "@/components/landing/Register";
 import { Slots } from "@/components/landing/Slots";
 import { Match } from "@/components/landing/Match";
+import { TopPitches } from "@/components/landing/Pitch";
 import { Thanks } from "@/components/landing/Thanks";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")!).render(
           <Campus />
           <Register />
           <Slots />
+          <TopPitches />
           <Match />
           <Why />
           <Thanks />

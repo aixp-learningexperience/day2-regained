@@ -8,11 +8,14 @@ type Identity = { id: string; token: string };
 export type Me = {
   id: string; full_name: string; company: string; role: string; looking_for: string[];
   waitlisted: boolean; slot_id: string | null; slot_starts_at: string | null; pitch_title: string | null;
+  liked_ids: string[]; deck_url: string | null; deck_name: string | null;
 };
-export type Slot = { id: string; starts_at: string; taken: boolean; company: string | null; pitch_title: string | null };
+export type Slot = { id: string; starts_at: string; taken: boolean; company: string | null; pitch_title: string | null;
+  attendee_id: string | null; likes: number; deck_url: string | null };
 export type DirEntry = {
   id: string; full_name: string; company: string; role: string; one_liner: string;
   looking_for: string[]; linkedin_url: string | null; slot_starts_at: string | null;
+  likes: number; deck_url: string | null;
 };
 
 type Ctx = {
@@ -86,9 +89,9 @@ export function useSlots() {
     queryFn: async () => {
       const { data, error } = await supabase.rpc("get_slots");
       if (error) throw error;
-      return (data ?? []) as Slot[];
+      return ((data ?? []) as Slot[]).map((s) => ({ ...s, likes: Number(s.likes ?? 0) }));
     },
-    refetchInterval: 60_000,
+    refetchInterval: 20_000,
   });
 }
 export function useStats() {
@@ -109,9 +112,9 @@ export function useDirectory() {
     queryFn: async () => {
       const { data, error } = await supabase.rpc("get_directory");
       if (error) throw error;
-      return (data ?? []) as DirEntry[];
+      return ((data ?? []) as DirEntry[]).map((p) => ({ ...p, likes: Number(p.likes ?? 0) }));
     },
-    refetchInterval: 60_000,
+    refetchInterval: 20_000,
   });
 }
 
