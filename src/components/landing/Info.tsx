@@ -7,7 +7,7 @@ export function HowItWorks() {
   const steps = [
     ["Register", "30 seconds."],
     ["Pick a 5-minute stage slot", "The most-liked pitch of the day wins one year of AIXP. No slot? Floor1 has four open tables for free pitch sessions."],
-    ["Enter the campus in your browser", "Type your name, choose an avatar, walk in."],
+    ["Enter the campus in your browser", "Type your name and your company (for example \"Patrizio - AIXP\"), choose an avatar, walk in."],
   ];
   return (
     <Section eyebrow="How it works" title="Three steps. No install.">
@@ -29,7 +29,7 @@ export function Campus() {
     [Mic, "Auditorium", "The stage. One startup every 5 minutes, all day."],
     [Users, "Meeting Room", "AIXP in a few minutes: a short video on what AIXP does, and someone from our team there to answer your questions."],
     [Presentation, "Show Room", "See how a company presents products inside an immersive space."],
-    [Coffee, "Floor1", "Four tables for open pitch sessions. No slot needed: sit down and pitch."],
+    [Coffee, "Floor1", "Enter the elevator in the main lobby and get to Floor1. Four tables for open pitch sessions. No slot needed: sit down and pitch."],
     [Sunset, "Rooftop", "The hallway track. Walk up, say hi. Rooftop Hour at 18:00 Lisbon time: one hour of open networking, everyone up."],
   ] as const;
   return (
@@ -84,7 +84,9 @@ export function Footer() {
   return (
     <footer className="border-t border-border pb-28 sm:pb-10">
       <div className="mx-auto max-w-6xl space-y-2 px-5 py-10 text-sm text-muted-foreground">
-        <p className="text-base font-bold tracking-[0.4em] text-foreground">AIXP</p>
+        <div className="mb-4 inline-flex rounded-2xl bg-white px-5 py-4">
+          <img src={`${import.meta.env.BASE_URL}aixp-logo-full.png`} alt="AIXP — learn it your way" className="h-16 w-auto" />
+        </div>
         <p>An independent community initiative by AIXP. Not affiliated with, sponsored or endorsed by Web Summit.</p>
         <p>Virtual campus hosted in the immersive world AIXP built for Saratoga.</p>
         <p><a href={AIXP_URL} target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">aixp.it</a></p>

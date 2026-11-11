@@ -21,7 +21,7 @@ export function EnterCampus({ mapTip = false }: { mapTip?: boolean }) {
       <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
         <a href={CAMPUS_URL} target="_blank" rel="noopener noreferrer">Enter the campus</a>
       </Button>
-      <p className="mt-2 text-sm text-muted-foreground">No install. Type your name, choose an avatar, walk in. Works best on a laptop.</p>
+      <p className="mt-2 text-sm text-muted-foreground">No install. Type your name and your company (for example "Patrizio - AIXP"), choose an avatar, walk in. Works best on a laptop.</p>
       {mapTip && <p className="mt-1 text-sm text-muted-foreground">Inside, click the Saratoga logo (top right) to open the 3D map and jump to the Auditorium, Floor1 or the Rooftop.</p>}
     </div>
   );

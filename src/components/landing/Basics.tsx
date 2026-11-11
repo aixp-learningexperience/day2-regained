@@ -36,7 +36,9 @@ export function TopBar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#top" className="text-lg font-bold tracking-[0.4em]">AIXP</a>
+        <a href="#top" className="inline-flex items-center rounded-xl bg-white px-3 py-1.5" aria-label="AIXP">
+          <img src={`${import.meta.env.BASE_URL}aixp-logo.png`} alt="AIXP" className="h-7 w-auto" />
+        </a>
         <Button variant="hero" onClick={() => scrollToId("register")}>Book a slot</Button>
       </div>
     </header>
